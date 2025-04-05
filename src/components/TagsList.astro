@@ -1,0 +1,18 @@
+---
+interface Props {
+  tags: string[];
+}
+
+const { tags } = Astro.props;
+const baseUrl = "/blog/tag";
+---
+
+<ul>
+  {
+    tags.map((tag) => (
+      <li>
+        <a href={`${baseUrl}/${tag}`}>{tag}</a>
+      </li>
+    ))
+  }
+</ul>

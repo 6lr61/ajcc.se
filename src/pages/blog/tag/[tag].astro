@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../../layouts/Base.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
+
+  return tags.map((tag) => {
+    const matchingPosts = posts.filter((post) => post.data.tags.includes(tag));
+    return {
+      params: { tag },
+      props: { posts: matchingPosts },
+    };
+  });
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+const title = `Articles with the "${tag}"-tag`;
+const basePath = "/blog/post";
+---
+
+<Base title={title}>
+  <h1>{title}</h1>
+  <ul>
+    {posts.map((post) => <li><a href={`${basePath}/${post.id}`}>{post.data.title}</a></li>)}
+  </ul>
+</Base>

@@ -1,0 +1,14 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import TagsList from "../../components/TagsList.astro";
+
+const title = "Tags index";
+const posts = await getCollection("blog");
+const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
+---
+
+<Base title={title}>
+  <h1>{title}</h1>
+  <TagsList tags={tags} />
+</Base>
