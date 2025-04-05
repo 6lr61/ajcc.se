@@ -1,0 +1,21 @@
+---
+import Default from "../../layouts/Default.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+  return posts.map(post => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await render(post);
+---
+
+<Default title={post.data.title}>
+  <h1>{post.data.title}</h1>
+  <section>{post.data.description}</section>
+  <Content />
+</Default>
