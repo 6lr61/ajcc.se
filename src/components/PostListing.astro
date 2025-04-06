@@ -1,0 +1,18 @@
+---
+import type { InferEntrySchema } from "astro:content";
+
+interface Props {
+  id: string;
+  data: InferEntrySchema<"blog">;
+}
+
+const {
+  data: { title, summary },
+  id,
+} = Astro.props;
+---
+
+<li>
+  <a href={`/blog/post/${id}`}>{title}</a>
+  <div>{summary}</div>
+</li>

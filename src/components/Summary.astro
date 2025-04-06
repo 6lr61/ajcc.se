@@ -1,0 +1,13 @@
+---
+import {createMarkdownProcessor} from "@astrojs/markdown-remark";
+
+interface Props {
+  summary: string;
+}
+
+const { summary } = Astro.props;
+const markdown = await createMarkdownProcessor();
+const rendered = await markdown.render(summary);
+---
+
+<div class="post-summary" set:html={rendered.code} />
