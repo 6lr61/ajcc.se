@@ -1,5 +1,7 @@
 ---
-import Navigation from '../components/Navigation.astro';
+import "../styles/base.css";
+import Hamburger from "../components/Hamburger.astro";
+import NavigationLinks from "../components/NavigationLinks.astro";
 
 interface Props {
   title: string;
@@ -17,10 +19,33 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <header>
-      <span id="site-name">Adrian's Most Excellent Astro Page</span>
-      <Navigation />
+    <header id="site-header">
+      <section>
+        <span id="site-name">adrian</span>
+        <div />
+        <button id="hamburger">🍔</button>
+      </section>
+      <nav id="site-navigation">
+        <NavigationLinks />
+      </nav>
     </header>
     <slot />
+    <script>
+       document.querySelector("#hamburger")?.addEventListener("click", () => {
+        const navigation = document.querySelector("#site-navigation");
+
+        if (!navigation || !(navigation instanceof HTMLElement)) {
+          return;
+        }
+
+        const display = window.getComputedStyle(navigation).getPropertyValue("display");
+
+        if (display === "none") {
+          navigation.style.display = "block";
+        } else {
+          navigation.style.display = "none";
+        } 
+       });
+    </script>
   </body>
 </html>

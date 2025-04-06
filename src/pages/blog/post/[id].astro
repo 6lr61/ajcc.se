@@ -23,7 +23,7 @@ const { Content, headings } = await render(post);
       <summary>Table of Content</summary>
       <TableOfContent headings={headings} />
     </details>
-    <summary>{post.data.summary}</summary>
+    <section class="post-summary">{post.data.summary}</section>
     <Content />
     <section>
       <h2>Tags</h2>
