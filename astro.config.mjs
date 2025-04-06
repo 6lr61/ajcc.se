@@ -10,6 +10,12 @@ export default defineConfig({
     "/blog/tag": "/blog/tags",
   },
   markdown: {
+    shikiConfig: {
+      themes: {
+        light: "github-light",
+        dark: "github-dark",
+      },
+    },
     rehypePlugins: [
       rehypeSlug,
       [
