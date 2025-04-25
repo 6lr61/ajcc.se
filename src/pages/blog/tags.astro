@@ -9,6 +9,8 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 ---
 
 <Base title={title}>
-  <h1>{title}</h1>
-  <TagsList tags={tags} />
+  <main>
+    <h1>{title}</h1>
+    <TagsList tags={tags} />
+  </main>
 </Base>

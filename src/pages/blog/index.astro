@@ -8,8 +8,10 @@ const posts = await getCollection("blog");
 ---
 
 <Base title={title}>
-  <h1>{title}</h1>
-  <ul>
-    {posts.map((post) => <PostListing id={post.id} data={post.data} />)}
-  </ul>
+  <main>
+    <h1>{title}</h1>
+    <ul>
+      {posts.map((post) => <PostListing id={post.id} data={post.data} />)}
+    </ul>
+  </main>
 </Base>

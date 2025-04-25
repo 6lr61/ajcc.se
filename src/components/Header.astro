@@ -1,0 +1,103 @@
+---
+import Hamburger from "./icons/Hamburger.astro";
+---
+
+<header>
+  <section>
+    <div>ajcc.se</div>
+    <button><Hamburger /> Menu</button>
+  </section>
+  <nav>
+    <ul>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/blog">Blog</a>
+      </li>
+      <li>
+        <a href="/blog/tags">Tag index</a>
+      </li>
+      <li>
+        <a href="/about">About</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  document.querySelector("header button")?.addEventListener("click", () => {
+    document.querySelector("nav ul")?.classList.toggle("visible-menu");
+  });
+</script>
+
+<style>
+  @import "../styles/palette.css";
+
+  header {
+    background-color: var(--header-background-color);
+    display: block;
+    border-bottom: 1px solid var(--divider-color);
+    padding: 1rem;
+
+    section {
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+
+      div {
+        flex-grow: 1;
+      }
+
+      button {
+        font-size: 1rem;
+        color: var(--font-color);
+        background-color: var(--header-background-color);
+        border: none;
+        cursor: pointer;
+        display: block;
+      }
+    }
+
+    nav {
+      ul {
+        margin: 0;
+        padding: 0;
+        display: none;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        &.visible-menu {
+          display: flex;
+        }
+
+        li {
+          list-style: none;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 60ch) {
+    header {
+      display: flex;
+      gap: 2rem;
+
+      section {
+        button {
+          display: none;
+        }
+      }
+
+      nav {
+        align-content: center;
+
+        ul {
+          display: flex;
+          flex-direction: row;
+          gap: 1.5rem;
+        }
+      }
+    }
+  }
+</style>

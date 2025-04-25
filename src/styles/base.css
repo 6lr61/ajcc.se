@@ -1,22 +1,4 @@
-:root {
-  --background-color: white;
-  --font-color: black;
-  --link-color: blue;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-color: #202020;
-    --font-color: white;
-    --link-color: cornflowerblue;
-  }
-
-  .astro-code,
-  .astro-code span {
-    color: var(--shiki-dark) !important;
-    background-color: var(--shiki-dark-bg) !important;
-  }
-}
+@import "./palette.css";
 
 body {
   background-color: var(--background-color);
@@ -25,52 +7,6 @@ body {
   margin: 0;
 }
 
-/* Site Header */
-#site-header {
-  background-color: pink;
-
-  section {
-    display: flex;
-    align-items: center;
-    border-bottom: white solid 1px;
-    padding: 1rem;
-    padding-bottom: 0.5rem;
-
-    span {
-      font-size: 1.5rem;
-    }
-
-    div {
-      flex-grow: 1;
-    }
-
-    .hamburger {
-
-    }
-  }
-
-  #site-navigation {
-    display: none;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.7rem;
-    padding: 0;
-    margin: 0;
-
-    li {
-      list-style: none;
-    }
-  }
-}
-
-/* Containers */
 main {
   max-width: 75ch;
   padding: 15px;
@@ -80,7 +16,6 @@ pre {
   padding: 15px;
 }
 
-/* Text */
 a {
   color: var(--link-color);
 }
@@ -89,7 +24,6 @@ code {
   font-size: 1rem;
 }
 
-/* Headings */
 .heading-group {
   display: flex;
   align-items: center;
@@ -106,4 +40,10 @@ code {
   h4 {
     margin: 0;
   }
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
 }

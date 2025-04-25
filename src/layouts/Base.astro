@@ -1,7 +1,6 @@
 ---
+import Header from "../components/Header.astro";
 import "../styles/base.css";
-import Hamburger from "../components/Hamburger.astro";
-import NavigationLinks from "../components/NavigationLinks.astro";
 
 interface Props {
   title: string;
@@ -19,16 +18,7 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <header id="site-header">
-      <section>
-        <span id="site-name">adrian</span>
-        <div />
-        <button id="hamburger">🍔</button>
-      </section>
-      <nav id="site-navigation">
-        <NavigationLinks />
-      </nav>
-    </header>
+    <Header />
     <slot />
     <script>
        document.querySelector("#hamburger")?.addEventListener("click", () => {

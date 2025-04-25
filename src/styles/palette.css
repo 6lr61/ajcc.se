@@ -1,0 +1,23 @@
+:root {
+  --background-color: white;
+  --font-color: black;
+  --link-color: blue;
+  --divider-color: grey;
+  --header-background-color: lightgrey;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #202020;
+    --font-color: white;
+    --link-color: cornflowerblue;
+    --divider-color: lightgrey;
+    --header-background-color: #333333;
+  }
+
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+  }
+}
